@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7290B9">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragmentWeather"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCity"
+            style="@style/TitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="2dp"
+            android:text="Омск"
+            app:layout_constraintEnd_toStartOf="@+id/tvValueTemp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvValueTemp"
+            style="@style/GrayTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/value_celsius"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/toggle"
+            app:layout_constraintEnd_toStartOf="@+id/toggle"
+            app:layout_constraintTop_toTopOf="@+id/toggle" />
+
+        <RadioGroup
+            android:id="@+id/toggle"
+            android:layout_width="77dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_radio_button"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvCity"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/rbCelsius"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/toggle_bg_radio_button"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@color/colorWhite" />
+
+            <RadioButton
+                android:id="@+id/rbFahrenheit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/toggle_bg_radio_button"
+                android:button="@null"
+                android:gravity="center"
+                android:text="F"
+                android:textColor="@color/colorWhite" />
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvChangeCity"
+            style="@style/GrayTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/change_city"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMyLocation"
+            app:layout_constraintEnd_toStartOf="@+id/tvMyLocation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCity" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMyLocation"
+            style="@style/GrayTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/ic_location"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:text="@string/my_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvChangeCity"
+            app:layout_constraintTop_toBottomOf="@+id/tvCity" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutWeather"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/layoutFeature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMyLocation">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgWeather"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_cloudy"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCurrentWeatherDegree"
+                app:layout_constraintEnd_toStartOf="@+id/tvCurrentWeatherDegree"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvCurrentWeatherDegree" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCurrentWeatherDegree"
+                style="@style/CurrentWeatherTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="14.3º"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgWeather"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNameWeather"
+                style="@style/WhiteTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Дождь"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCurrentWeatherDegree" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutFeature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutWeather">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleWind"
+                style="@style/GrayTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/wind"
+                app:layout_constraintEnd_toStartOf="@+id/tvTitlePressure"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitlePressure"
+                style="@style/GrayTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/pressure"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleWind"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWind"
+                style="@style/WhiteTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="5 м/c, западный"
+                app:layout_constraintEnd_toStartOf="@+id/tvPressure"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitlePressure" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPressure"
+                style="@style/WhiteTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="752 мм рт. ст."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvWind"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitlePressure" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleWet"
+                style="@style/GrayTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/wet"
+                app:layout_constraintEnd_toStartOf="@+id/tvTitleProbablyRain"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPressure" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleProbablyRain"
+                style="@style/GrayTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/probably_rain"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleWet"
+                app:layout_constraintTop_toBottomOf="@+id/tvPressure" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWet"
+                style="@style/WhiteTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="5 м/c, западный"
+                app:layout_constraintEnd_toStartOf="@+id/tvProbablyRain"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleProbablyRain" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProbablyRain"
+                style="@style/WhiteTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="752 мм рт. ст."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvWet"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleProbablyRain" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:visibility="visible"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

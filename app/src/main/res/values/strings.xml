@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="change_city">Сменить город</string>
+    <string name="my_location">Мое местоположение</string>
+    <string name="wind">Ветер</string>
+    <string name="pressure">Давление</string>
+    <string name="wet">Влажность</string>
+    <string name="probably_rain">Веротяность дождя</string>
+
+    <string name="value_celsius">º</string>
+    <string name="value_fahrenheit">F</string>
+    <string name="value_probably_rain">упс...</string>
+
+    <string name="current_weather">%1$.01fº</string>
+    <string name="current_weather_no_sign">%1$.01f%2$s</string>
+    <string name="value_wind">%1$.01f м/с.</string>
+    <string name="value_pressure">%1$.01f мм рт. ст.</string>
+    <string name="value_wet">%1$.00f%%</string>
+
+    <string name="no_gps">GPS выключен!</string>
+
+    <string name="request_permissions">Нет разрешения на получения локации.</string>
+
+
+
+</resources>
